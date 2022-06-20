@@ -42,10 +42,8 @@ class Neighborhood(models.Model):
     
 class Business(models.Model):
     name = models.CharField(max_length=55, unique=True)
-    user = models.ForeignKey(
-        User, related_name='owner', on_delete=models.CASCADE)
-    neighborhood = models.ForeignKey(
-        Neighborhood, related_name='hood', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='owner', on_delete=models.CASCADE)
+    neighborhood = models.ForeignKey(Neighborhood, related_name='hood', on_delete=models.CASCADE)
     email = models.EmailField(unique=True)
     established = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -77,3 +75,20 @@ class Business(models.Model):
 def __str__(self):
     return self.name
         
+        
+class Post(models.Model):
+    user = models.ForeignKey(User, related_name='author', on_delete=models.CASCADE)
+    post = models.TextField()
+    comments = models.ManyToManyField('Comment', related_name='comments', blank=True)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
+    business = models.ForeignKey(Business, on_delete=models.CASCADE)
+    likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
+    posted_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.post        
+    
+    
+    
+    
