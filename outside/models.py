@@ -111,4 +111,29 @@ class Like(models.Model):
     updated_at = models.DateTimeField(auto_now=True)    
     
     
-    
+class Profile( models.Model ):
+    objects=None
+    profilePic=models.ImageField( upload_to='profile/' , null=True , blank=True )
+    #contact=HTMLField( max_length=60 , null=True )
+    bio=models.CharField( max_length=200 , blank=True )
+    user=models.ForeignKey( User , on_delete=models.CASCADE , related_name='profile' , null=True )
+    email=models.TextField( max_length=200 , null=True , blank=True , default=0 )
+
+    def __str__(self):
+        return self.bio
+
+    def save_profile(self):
+        self.save( )
+
+    def delete_profile(self):
+        self.delete( )
+
+    @classmethod
+    def get_profile(cls):
+        profile=Profile.objects.all( )
+        return profile
+
+    @classmethod
+    def find_profile(cls , search_term):
+        profile=cls.objects.filter( user__username__icontains=search_term )
+        return profile        
