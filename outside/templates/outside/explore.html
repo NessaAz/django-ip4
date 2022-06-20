@@ -1,6 +1,66 @@
 {% extends 'outside/main.html' %}
+{% load static %}
+
 
 {% block content %}
-<h2>hello neighbour</h2>
+<div class="container"> 
+    <div class="row h-75" >
+        <div class="col-md-3 ">
+            <div class="card card.body h-75 border-info" id="profile-wrapper" >
+                
+                <br>
+                <h4>Hi Lorem</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic obcaecati illum vitae sunt. Error beatae pariatur, enim fugiat nemo asperiores placeat aut ullam voluptatem numquam praesentium laudantium. Earum, enim veritatis.</p>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card card.body h-75 border-info">
+                <h4>top story</h4>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ratione vero deleniti sint at beatae fuga eum, soluta in blanditiis error enim molestias. Est fugiat perferendis voluptatibus aspernatur doloremque facere.</p>
+                <ul class="social-links">
+                    <li><img class="social" src="{% static 'images/facebook.png' %}" alt="facebook"></li>
+                    <li><img class="social" src="{% static 'images/linked.png' %}" alt="linkedin"></li>
+                    <li><img class="social" src="{% static 'images/insta2.png' %}" alt="instagram"></li>
+                    <li><img class="social" src="{% static 'images/twitter.png' %}" alt="twitter"></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card.body h-100">
+                <h5>tech</h5> <br>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit cum quam reprehenderit, odio eos nihil dignissimos nulla rem nesciunt praesentium quod dolorem libero cumque alias, tempora architecto fugit. In, nisi?</p>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card.body h-100">
+                <h5>upcoming story</h5><br>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt magni tenetur aperiam facilis reiciendis delectus inventore numquam qui, aliquid illum neque itaque accusamus laborum excepturi, nisi culpa veritatis expedita eum?</p>
+            </div>
+        </div>
+    </div>
+<br>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card.body h-100">
+                <h5>community projects</h5><br>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam ratione dolore atque? Necessitatibus, consequatur. Corrupti omnis eveniet magni officia fugit inventore reprehenderit delectus sapiente, hic aut placeat vel, quis impedit?</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card.body h-100">
+                <br><h5>community plans</h5><br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia aperiam facere atque placeat unde consequuntur hic impedit, reiciendis sequi officia cum. Eveniet commodi eaque omnis obcaecati accusamus unde minus id.</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>    
 
 {% endblock content %}
