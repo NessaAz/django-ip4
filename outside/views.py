@@ -1,5 +1,7 @@
 from multiprocessing import context
 from django.shortcuts import render
+from .models import *
+
 
 def main(request):
     context = {}
@@ -16,3 +18,8 @@ def login(request)    :
 def signup(request)    :
     context={}
     return render(request, 'outside/signup.html', context)
+
+def hoods(request):
+    neighbourhoods = Neighborhood.objects.all()
+    context = {'neighbourhoods': neighbourhoods}
+    return render(request, 'outside/hoods.html', context)

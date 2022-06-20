@@ -1,3 +1,4 @@
+from email.mime import image
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -9,6 +10,7 @@ class Neighborhood(models.Model):
     admin = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    image = models.ImageField(null=True, blank=True)
 
     @classmethod
     def get_neighborhood(cls, id):
