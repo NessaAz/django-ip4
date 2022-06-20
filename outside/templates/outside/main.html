@@ -9,44 +9,565 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum scale=1"> <!-- makes it look good on phone -->
     <title>hey </title>
     <link href="{% static '/css/main.css'  %} " rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/3400be60ec.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'main' %}">the outside</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'explore' %}">explore</a>
-              </li>
-            </ul>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">theOutside</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Food</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Browse topics
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Food</a>
+                <a class="dropdown-item" href="#">Market place</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Other hoods</a>
+              </div>
+            </li>
+            
+          </ul>
 
-            <div class="form-inline my-2 my-lg-0">
-                <a href="#" class="btn btn-warning">login</a>
-                
+          <!-- SEARCH BOX -->         
+            <div class="container">
+              
+              <div class="search-box">
+                <div class="search-icon"><i class="fa fa-search search-icon"></i></div>
+                <form action="" class="search-form">
+                  <input type="text" placeholder="Search" id="search" autocomplete="off">
+                </form>
+                <svg class="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" style="enable-background:new 0 0 671 111;"
+                 xml:space="preserve">
+                    <path class="border" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280"/>
+                    <path class="border" d="M335.5,108.5h280c29.3,0,53-23.7,53-53v0c0-29.3-23.7-53-53-53h-280"/>
+                  </svg>
+                <div class="go-icon"><i class="fa fa-arrow-right"></i></div>
+              </div>
+          
             </div>
+          <!-- END OF SEARCH BOX -->
 
-          </div>
         </div>
+      
+        <div class="form-inline my-2 my-lg-0">
+          <a href="#" class="btn btn-warning login-btn">login</a>
+          
+      </div>
       </nav>
-
+      <!-- END OF NAVBAR -->
     <hr>
     <div class="container">
         <!-- <div class="row">
             <div class="col-md-6"></div>
         </div> -->        
+        <!-- background-image: url(static/images/outside.jpg); -->
         {% block content  %}
-        
+        <section class="landing">
+          <div class="wrapper">
+            <div class="container-fluid landing-container">
+              <div class="p-3">
+              </div>
+              <div class="row h-75">
+                <div class="col-lg-6 home-left">
+                  <h2 class="color-primary home-title">
+                    theOutside
+                  </h2>
+                  <p class="home-para">
+                    welcome to your one-stop shop for all your neighbourhood news.<br />
+                    you can  also contribute to the community<br />Signup to get started.
+                  </p>
+                  <button class="btn home-btn mt-3">Get Started</button>
+                
+                </div>
+                <div class="col-lg-6 home-right ">
+                  <img src="static/images/outside.jpg" alt="community pic" class="landing-image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         {% endblock content  %}
+    </div>
+
+    <!-- FOOTER -->
+    <div class="container-fluid justify-content-center px-0 ">
+      <footer>
+        <div class="row justify-content-around mb-0 pt-5 mx-4">
+          <div class="col-xl-2 col-md-4 order-xl-1 order-4 mr-xl-0 my-auto">
+            <ul class="list-unstyled mt-md-3 mt-5">
+              <li>Social Media</li>
+              <li class="social"> <span> <i class="fa fa-facebook" aria-hidden="true"></i></span> <span> <i
+                    class="fa fa-instagram" aria-hidden="true"></i> </span> <span> <i class="fa fa-twitter"
+                    aria-hidden="true"></i> </span> </li>
+            </ul>
+            <ul class="list-unstyled my-xl-4 my-md-3"></ul>
+          </div>
+          <div class="col-xl-2 col-md-3 pt-4 order-1">
+            <ul class="list-unstyled">
+              <li class="mt-md-0 mt-4">Our Recommendations</li>
+              <li>Intergrated Security </li>
+              <li>Core Features</li>
+              <li>Product Features</li>
+              <li>Pricing</li>
+            </ul>
+          </div>
+          <div class="col-xl-2 col-md-3 pt-4 order-2">
+            <ul class="list-unstyled">
+              <li class="mt-md-0 mt-4">Your needs</li>
+              <li> Security </li>
+              <li> Features</li>
+              <li>Product </li>
+              <li>Pricing</li>
+            </ul>
+          </div>
+          <div class="col-xl-auto col-md-3 pt-4 my-sm-0 order-md-3 order-sm-1 ">
+            <ul class="list-unstyled">
+              <li class="mt-md-0 mt-4">Offer</li>
+              <li> Security </li>
+              <li> Features</li>
+              <li>Product </li>
+              <li>Pricing</li>
+            </ul>
+          </div>
+          <div class="col-xl-auto col-md-6 col-12  pt-4 my-sm-0 order-6  ">
+            <div class="form-group "><label for="email" class="mb-3"><b>Subscribe to our newsletter and stay up to date</b></label><input type="email" class="form-control form-control-lg" placeholder="Enter email"
+                id="email"></div><button type="button"
+              class="btn btn-primary btn-lg btn-block my-2 Subscribe mt-4 mb-3">Subscribe</button>
+          </div>
+        </div>
+    
+      </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
+
+<!-- CSS STYLING -->
+<style>
+
+  body{
+    font-family: 'Varela Round', sans-serif !important;
+  }
+#navbarSupportedContent{
+  color: rgb(220, 205, 205);
+  font-weight: bolder;
+  text-shadow: 0 0 45px #EEC6CA;
+  font-size: 1.2rem;
+}
+  /*background-image: url(static/images/outside.jpg);*/
+.landing-image {
+  width: 485px;
+  height: 500px;
+  border-radius: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.bg-light {
+  background-color: #684A52 !important;
+}
+
+  .landing {
+    height: 100vh;
+    background: linear-gradient(to right, #B6A39E, #EEC6CA 70%);
+  }
+  
+  .wrapper {
+    padding: 3rem 3rem 0;
+    height: 100%;
+  }
+  
+  .landing-container {
+    background: linear-gradient(to right, #857885 50%, #553D36 40%, #857885 100%);
+    width: 100%;
+    height: 100%;
+  }
+  .home-left {
+    padding: 6rem 0 0 8rem;
+  }
+  
+  .landing-right {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .home-title {
+    color: rgb(220, 205, 205);
+    font-weight: bolder;
+    text-shadow: 0 0 45px #EEC6CA;
+    font-size: 3rem;
+  }
+  .home-para {
+    font-weight: bolder;
+    color: rgb(242, 234, 234);
+    padding: 1rem 0 0;
+  }
+  
+  .home-btn {
+    
+    background-color: #553D36;
+    box-shadow: 6px 6px 24px #0202029f;
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 9px 18px;
+    color: #fff;
+    border: 2px solid transparent;
+  }
+  
+  .home-btn::before {
+    animation: ring 1.5s ;
+    content: "";
+    border: 6px solid #fff;
+    box-shadow: 0 0 60px rgba(0, 255, 203, 0.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.3s ease-in-out 0s;
+  }
+  
+  /* .home-btn:hover,
+  .home-btn:focus {
+    color: #313133;
+    /*background-color: transparent;*/
+    /*border: 2px solid #1a2036;*/
+   /* border-left: none;
+    border-right: none;
+    /*font-weight: bolder;*/
+  /*  transform: translateY(-6px);
+    border-radius: 0;
+  } */
+  
+  .home-btn:hover::before,
+  .home-btn:focus::before {
+    animation: none;
+  }
+  
+  .home-btn:hover::after,
+  .home-btn:focus::after {
+    animation: none;
+    display: none;
+  }
+
+  /*LOGIN*/
+  .login-btn{
+    color: #EEC6CA;
+    background-color: transparent;
+    border: 2px solid #EEC6CA;
+    font-weight: bolder;
+    transform: translateY(-6px);
+    border-radius: 0;
+  }
+
+  .login-btn:hover  {
+    color: #EEC6CA;
+    background-color: transparent;
+    border: 2px solid #EEC6CA;
+    font-weight: bolder;
+    transform: translateY(-8px);
+    border-radius: 0;
+    animation: normal;
+  }
+  .form-inline{
+  background: rgba(255,255,255,0);
+  padding: 0 68px 0 68px;
+  color: #FFFFFF;
+  font-size: 1.32em;
+  font-weight: 400;
+  }
+  
+  @keyframes ring {
+    0% {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      opacity: 1;
+    }
+    100% {
+      border-radius: 50%;
+      width: 4rem;
+      height: 4rem;
+      opacity: 0;
+    }
+  }
+
+  /*EXPLORE*/
+  .social {
+    width: 20px;
+    height: 20px;
+}
+
+.social-links ul, li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+/*FOOTER*/
+.footer_cnt {
+  background-color: #f1f2f6;
+  margin-top: 20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.footer a {
+  color: #163469;
+  padding: 0 10px;
+  text-decoration: none;
+}
+.footer_cnt {
+  background-color: #f1f2f6;
+}
+footer button {
+  font-size: calc(
+    13px + (16 - 13) * ((100vw - 360px) / (1600 - 320))
+  ) !important;
+  border-radius: 0 !important;
+  padding-left: calc(
+    20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))
+  ) !important;
+  padding-right: calc(
+    20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))
+  ) !important;
+  padding-top: calc(
+    10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))
+  ) !important;
+  padding-bottom: calc(
+    10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))
+  ) !important;
+  background-color: #553D36 !important;
+  border: none !important;
+}
+footer button:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  outline-width: 0;
+}
+footer li {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+footer input::-webkit-input-placeholder {
+  padding-left: 5px !important;
+  transform: translate3d(0, -2px, 0);
+}
+footer input::placeholder {
+  vertical-align: middle !important;
+  color: rgb(196, 193, 193) !important;
+  font-size: calc(
+    12px + (14 - 12) * ((100vw - 360px) / (1600 - 360))
+  ) !important;
+}
+
+footer input {
+  border-radius: 2px !important;
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+footer input:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  outline-width: 0;
+  border-color: #ffffff !important;
+}
+footer img{
+
+  vertical-align: middle !important;
+  width: 100%;
+  width: calc(30px + 6 * ((100vw - 320px) / 680)) !important;
+}
+
+footer li:first-child {
+  font-size:  18px !important;
+  font-weight: bold;
+}
+.social{
+  position: relative;
+  left: -10px;
+}
+
+/*MEDIA QUERIES*/
+@media (max-width: 767.98px)
+{
+
+}
+
+
+/*SEARCH BOX*/
+*, *:before, *:after {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+a, a:visited, a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+
+.search-box {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  height: 60px;
+  border-radius: 120px;
+  margin: 0 auto;
+}
+.search-icon, .go-icon {
+  position: absolute;
+  top: 0;
+  height: 60px;
+  width: 86px;
+  line-height: 61px;
+  text-align: center;
+}
+.search-icon {
+  left: 0;
+  pointer-events: none;
+  font-size: 1.2em;
+  will-change: transform;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform-origin: center center;
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -o-transform-origin: center center;
+  transition: transform 400ms 220ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -webkit-transition: transform 400ms 220ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -moz-transition: transform 400ms 220ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -o-transition: transform 400ms 220ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+}
+.si-rotate {
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+}
+.go-icon {
+  right: 0;
+  pointer-events: none;
+  font-size: 1.38em;
+  will-change: opacity;
+  cursor: default;
+  opacity: 0;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transition: opacity 190ms ease-out, transform 260ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -webkit-transition: opacity 190ms ease-out, transform 260ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -moz-transition: opacity 190ms ease-out, transform 260ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -o-transition: opacity 190ms ease-out, transform 260ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+}
+.go-in {
+  opacity: 1;
+  pointer-events: all;
+  cursor: pointer;
+  transform: rotate(0);
+  -webkit-transform: rotate(0);
+  -moz-transform: rotate(0);
+  -o-transform: rotate(0);
+  transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -webkit-transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -moz-transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -o-transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+}
+.search-border {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: 60px;
+}
+.border {
+  fill: none;
+  stroke: #FFFFFF;
+  stroke-width: 5;
+  stroke-miterlimit: 10;
+}
+.border {
+  stroke-dasharray: 740;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 400ms cubic-bezier(0.600, 0.040, 0.735, 0.990);
+  -webkit-transition: stroke-dashoffset 400ms cubic-bezier(0.600, 0.040, 0.735, 0.990);
+  -moz-transition: stroke-dashoffset 400ms cubic-bezier(0.600, 0.040, 0.735, 0.990);
+  -o-transition: stroke-dashoffset 400ms cubic-bezier(0.600, 0.040, 0.735, 0.990);
+}
+.border-searching .border {
+  stroke-dasharray: 740;
+  stroke-dashoffset: 459;
+  transition: stroke-dashoffset 650ms cubic-bezier(0.755, 0.150, 0.205, 1.000);
+  -webkit-transition: stroke-dashoffset 650ms cubic-bezier(0.755, 0.150, 0.205, 1.000);
+  -moz-transition: stroke-dashoffset 650ms cubic-bezier(0.755, 0.150, 0.205, 1.000);
+  -o-transition: stroke-dashoffset 650ms cubic-bezier(0.755, 0.150, 0.205, 1.000);
+}
+#search {
+  font-family: 'Montserrat Alternates', sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  border: none;
+  background: rgba(255,255,255,0);
+  padding: 0 68px 0 68px;
+  color: #FFFFFF;
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  outline: none;
+}
+#search::-webkit-input-placeholder {color: #FFFFFF;}
+#search::-moz-placeholder {color: #FFFFFF;}
+#search:-ms-input-placeholder {color: #FFFFFF;}
+#search:-moz-placeholder {color: #FFFFFF;}
+#search::-moz-selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
+#search::selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
+
+</style>
 </html>
