@@ -8,7 +8,16 @@ def main(request):
     return render(request, 'outside/main.html', context)
 
 def explore(request):
-    context={}
+    neighbourhoods=Neighborhood.objects.all()
+    business=Business.objects.all()
+    posts=Post.objects.all()
+    # comments=Comment.objects.all()
+    # likes=Like.objects.all()
+    profiles=Profile.objects.all()
+    context = {'neighbourhoods': neighbourhoods}
+    context = {'business': business}
+    context = {'posts': posts}
+    context = {'profiles': profiles}
     return render(request, 'outside/explore.html', context)
     
 def login(request)    :

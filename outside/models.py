@@ -49,6 +49,7 @@ class Business(models.Model):
     email = models.EmailField(unique=True)
     established = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    image = models.ImageField(null=True, blank=True)
 
     @classmethod
     def get_business(cls, id):
@@ -87,6 +88,7 @@ class Post(models.Model):
     likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
     posted_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.post        

@@ -1,0 +1,22 @@
+{% extends 'outside/main.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="row">
+
+    {% for neighbourhood in neighbourhoods %}
+    <div class="col-lg-4">
+        <img class="thumbnail" src="{{neighbourhood.image.url}}" alt="{{neighbourhood.name}}">
+        <div class="box-element product">
+            <h6><strong>{{neighbourhood.name}}</strong></h6>
+            <hr>
+            <button  class="btn btn-outline-secondary add-btn">Add to Hoods</button>
+           
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock content %}
