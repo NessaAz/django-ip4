@@ -12,7 +12,9 @@ urlpatterns = [
     path('business/', views.business, name='business'),
     path('business/<businessname>', views.businessdetail, name='businessdetail'),
     # path('<int:pk>/', views.business, name='businessdetail'),
-        path('profile/<username>', views.profile, name='profile'),
+    path('profile/<username>', views.profile, name='profile'),
+    path('post/', views.post, name='post'),
+
 
 
 

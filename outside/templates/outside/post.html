@@ -1,0 +1,70 @@
+{% extends 'outside/main.html' %}
+{% load static %}
+{% load cloudinary %}
+
+
+{% block content %}
+<div class="row">
+
+    {% for post in post %}
+    <div class="col-lg-4">
+        <img class="thumbnail" src="{{post.image.url}}" alt="{{post.name}}">
+        <div class="box-element hoodname">
+            <h6><strong>{{post.name}}</strong></h6>
+            <hr>
+            {% comment %} <button  class="btn btn-outline-secondary viewhd-btn">View Post</button> {% endcomment %}
+            <span><p><i class="fa-solid fa-heart"></i>likes</p></span>
+            <span><p><i class="fa-solid fa-comments"></i>comments</p></span>    
+            
+           
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+<!-- CSS STYLING -->
+<style>    
+    .box-element{
+        box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+        background-color: #fff;
+        border-radius: 4px;
+        padding: 10px;
+    }
+    
+    .thumbnail{
+        width: 100%;
+        height: 200px;
+        -webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+        -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+        box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    }
+    
+    .hoodname{
+        border-radius: 0 0 4px 4px;
+    }
+    
+    
+    /*#cart-total{
+        display: block;
+        text-align: center;
+        color:#fff;
+        background-color: red;
+        width: 20px;
+        height: 25px;
+        border-radius: 50%;
+        font-size: 14px;
+    }*/
+    
+    .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
+        margin-top: 10px;
+    }
+    
+    
+    .row-image{
+        width: 100px;
+    }
+
+</style>    
+
+{% endblock content %}
