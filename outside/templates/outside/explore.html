@@ -3,62 +3,83 @@
 
 
 {% block content %}
-<div class="container"> 
-    <div class="row h-75" >
-        <div class="col-md-3 ">
-            <div class="card card.body h-75 border-info" id="profile-wrapper" >
-                
-                <br>
-                <h4>Hi Lorem</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic obcaecati illum vitae sunt. Error beatae pariatur, enim fugiat nemo asperiores placeat aut ullam voluptatem numquam praesentium laudantium. Earum, enim veritatis.</p>
-            </div>
-        </div>
-        <div class="col-md-9">
-            <div class="card card.body h-75 border-info">
-                <h4>top story</h4>
-                <br>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ratione vero deleniti sint at beatae fuga eum, soluta in blanditiis error enim molestias. Est fugiat perferendis voluptatibus aspernatur doloremque facere.</p>
-                <ul class="social-links">
-                    <a href="facebook.com" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="www.instagram.com" class="social"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="linkedin.com" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </ul>
-            </div>
+<div class="row">
+    {% for neighbourhood in neighbourhoods %}
+    
+    <div class="col-lg-4">
+        <img class="thumbnail" src="{{neighbourhood.image.url}}" alt="{{neighbourhood.name}}">
+        <div class="box-element hoodname">
+            <h6><strong>{{neighbourhood.name}}</strong></h6>
+            <hr>
+            <button  class="btn btn-outline-secondary viewhd-btn">View Hood</button>
+            <span><p><i class="fa-solid fa-heart"></i>likes</p></span>
+            <span><p><i class="fa-solid fa-comments"></i>comments</p></span>    
+           
         </div>
     </div>
-    <br>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card card.body h-100">
-                <h5>tech</h5> <br>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit cum quam reprehenderit, odio eos nihil dignissimos nulla rem nesciunt praesentium quod dolorem libero cumque alias, tempora architecto fugit. In, nisi?</p>
+    {% endfor %}
 
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card card.body h-100">
-                <h5>upcoming story</h5><br>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt magni tenetur aperiam facilis reiciendis delectus inventore numquam qui, aliquid illum neque itaque accusamus laborum excepturi, nisi culpa veritatis expedita eum?</p>
-            </div>
-        </div>
-    </div>
-<br>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card card.body h-100">
-                <h5>community projects</h5><br>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam ratione dolore atque? Necessitatibus, consequatur. Corrupti omnis eveniet magni officia fugit inventore reprehenderit delectus sapiente, hic aut placeat vel, quis impedit?</p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card card.body h-100">
-                <br><h5>community plans</h5><br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia aperiam facere atque placeat unde consequuntur hic impedit, reiciendis sequi officia cum. Eveniet commodi eaque omnis obcaecati accusamus unde minus id.</p>
-            </div>
+    
+</div>
+<!-- <div class="row">
+    {% for business in business %}
+    <div class="col-lg-4">
+        <img class="thumbnail" src="{{business.image.url}}" alt="{{business.name}}">
+        <div class="box-element hoodname">
+            <h6><strong>{{business.name}}</strong></h6>
+            <hr>
+            <button  class="btn btn-outline-secondary viewhd-btn">View Business</button>
+            <span><p><i class="fa-solid fa-heart"></i>likes</p></span>
+            <span><p><i class="fa-solid fa-comments"></i>comments</p></span>    
+            
+           
         </div>
     </div>
+    {% endfor %}
 
+</div> -->
 
-</div>    
+<!-- CSS STYLING -->
+<style>    
+    .box-element{
+        box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+        background-color: #fff;
+        border-radius: 4px;
+        padding: 10px;
+    }
+    
+    .thumbnail{
+        width: 100%;
+        height: 200px;
+        -webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+        -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+        box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    }
+    
+    .hoodname{
+        border-radius: 0 0 4px 4px;
+    }
+    
+    
+    /*#cart-total{
+        display: block;
+        text-align: center;
+        color:#fff;
+        background-color: red;
+        width: 20px;
+        height: 25px;
+        border-radius: 50%;
+        font-size: 14px;
+    }*/
+    
+    .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
+        margin-top: 10px;
+    }
+    
+    
+    .row-image{
+        width: 100px;
+    }
 
+</style>    
 {% endblock content %}
