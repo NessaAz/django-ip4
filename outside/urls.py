@@ -9,6 +9,10 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('signup/', views.signup, name='signup'),
     path('hoods/', views.hoods, name='hoods'),
+    path('business/', views.business, name='business'),
+    path('business/<businessname>', views.businessdetail, name='businessdetail'),
+    # path('<int:pk>/', views.business, name='businessdetail'),
+        path('profile/<username>', views.profile, name='profile'),
 
 
 
