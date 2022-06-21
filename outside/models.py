@@ -1,6 +1,7 @@
 from email.mime import image
 from django.db import models
 from django.contrib.auth.models import User
+#from cloudinary.models import CloudinaryField
 
 
 class Neighborhood(models.Model):
@@ -11,6 +12,8 @@ class Neighborhood(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(null=True, blank=True)
+    bio=models.CharField( max_length=200 , blank=True )
+
 
     @classmethod
     def get_neighborhood(cls, id):
@@ -50,6 +53,8 @@ class Business(models.Model):
     established = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(null=True, blank=True)
+    bio=models.CharField( max_length=200 , blank=True )
+
 
     @classmethod
     def get_business(cls, id):
@@ -76,7 +81,7 @@ class Business(models.Model):
 
 
 def __str__(self):
-    return self.name
+    return self.name.business.businessname
         
         
 class Post(models.Model):
@@ -116,7 +121,7 @@ class Like(models.Model):
     
     
 class Profile( models.Model ):
-    objects=None
+    
     profilePic=models.ImageField( upload_to='profile/' , null=True , blank=True )
     #contact=HTMLField( max_length=60 , null=True )
     bio=models.CharField( max_length=200 , blank=True )
@@ -124,7 +129,7 @@ class Profile( models.Model ):
     email=models.TextField( max_length=200 , null=True , blank=True , default=0 )
 
     def __str__(self):
-        return self.bio
+        return self.user.username
 
     def save_profile(self):
         self.save( )
