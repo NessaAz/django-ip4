@@ -1,7 +1,7 @@
 from email.mime import image
 from django.db import models
 from django.contrib.auth.models import User
-#from cloudinary.models import CloudinaryField
+from cloudinary.models import CloudinaryField
 
 
 class Neighborhood(models.Model):
@@ -11,7 +11,7 @@ class Neighborhood(models.Model):
     admin = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(null=True, blank=True)
+    image = CloudinaryField('images',  default='image')
     bio=models.CharField( max_length=200 , blank=True )
 
 
@@ -52,7 +52,7 @@ class Business(models.Model):
     email = models.EmailField(unique=True)
     established = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(null=True, blank=True)
+    image = CloudinaryField('images', default='image')
     bio=models.CharField( max_length=200 , blank=True )
 
 
@@ -93,7 +93,7 @@ class Post(models.Model):
     likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
     posted_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(null=True, blank=True)
+    image = CloudinaryField('images',  default='image')
 
     def __str__(self):
         return self.post        
@@ -122,7 +122,7 @@ class Like(models.Model):
     
 class Profile( models.Model ):
     
-    profilePic=models.ImageField( upload_to='profile/' , null=True , blank=True )
+    profilePic=CloudinaryField('images',  default='image')
     #contact=HTMLField( max_length=60 , null=True )
     bio=models.CharField( max_length=200 , blank=True )
     user=models.ForeignKey( User , on_delete=models.CASCADE , related_name='profile' , null=True )

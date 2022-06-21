@@ -1,10 +1,20 @@
 import os
 from pathlib import Path
+import dj_database_url
+import django_heroku
+import cloudinary, cloudinary.uploader, cloudinary.api
+
+
 #import cloudinary, cloudinary.api,cloudinary.uploader
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+cloudinary.config( 
+  cloud_name = 'nessaaz', 
+  api_key = '267196223421864',
+  api_secret = 'ck1X-h5xdDAON2PIc4xaBjuJOcU',
+)
 
 
 # Quick-start development settings - unsuitable for production
@@ -22,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'bootstrap4',
     'cloudinary',
     'outside',
     'django.contrib.admin',
@@ -40,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'theoutside.urls'
@@ -118,7 +131,14 @@ STATICFILES_DIRS = [
                     ]
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+# LOGOUT_REDIRECT_URL='/'
+# LOGIN_REDIRECT_URL='/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+django_heroku.settings(locals())
