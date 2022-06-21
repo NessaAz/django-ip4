@@ -27,18 +27,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#">Home </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Food</a>
+              <a class="nav-link" href="{% url 'hoods' %}">Hood</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Browse topics
-              </a>
+              <a class="dropdown-item" href="{% url 'business' %}">Businesses</a>
+
+
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Food</a>
-                <a class="dropdown-item" href="#">Market place</a>
+                <a class="dropdown-item" href="{% url 'hoods' %}">Hood</a>
+                <a class="dropdown-item" href="{% url 'business' %}">Businesses</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Other hoods</a>
               </div>
@@ -67,10 +67,7 @@
 
         </div>
       
-        <div class="form-inline my-2 my-lg-0">
-          <a href="#" class="btn btn-warning login-btn">login</a>
-          
-      </div>
+        
       </nav>
       <!-- END OF NAVBAR -->
     <hr>
@@ -94,7 +91,7 @@
                     welcome to your one-stop shop for all your neighbourhood news.<br />
                     you can  also contribute to the community<br />Signup to get started.
                   </p>
-                  <button class="btn home-btn mt-3">Get Started</button>
+                  <a href="{% url "signup" %}" class="btn home-btn mt-3">Get Started</a>
                 
                 </div>
                 <div class="col-lg-6 home-right ">
@@ -108,10 +105,9 @@
     </div>
 
     <!-- FOOTER -->
-    <hr>
 
     <div class="container-fluid justify-content-center px-0 ">
-      <footer>
+      <!-- <footer>
         <div class="row justify-content-around mb-0 pt-10 mx-4">
           <div class="col-xl-2 col-md-4 order-xl-1 order-4 mr-xl-0 my-auto">
             <ul class="list-unstyled mt-md-3 mt-5">
@@ -156,7 +152,7 @@
           </div>
         </div>
     
-      </footer>
+      </footer> -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -240,6 +236,7 @@
     padding: 9px 18px;
     color: #fff;
     border: 2px solid transparent;
+    
   }
   
   .home-btn::before {
